@@ -26,7 +26,7 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
     'development' => 'localhost',
-    'production'  => $_SERVER['LARAVEL_ENV']
+    'production'  => getenv['LARAVEL_ENV']
 ));
 
 /*
