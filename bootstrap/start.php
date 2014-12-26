@@ -25,7 +25,8 @@ $app = new Illuminate\Foundation\Application;
 */
 
 $env = $app->detectEnvironment(array(
-    'development' => array(gethostname())
+    'development' => 'localhost',
+    'production'  => 'http://198.58.98.154/'
 ));
 
 /*
