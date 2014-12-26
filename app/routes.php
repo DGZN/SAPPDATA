@@ -24,12 +24,12 @@ Route::get('/', function()
 
 Route::get('/debug', function(){
 
-	die(json_encode(array(
+	// die(json_encode(array(
 
-		'env' => getenv['LARAVEL_ENV'],
-		'laravelEnv' => App::environment()
+	// 	'env' => getenv['LARAVEL_ENV'],
+	// 	'laravelEnv' => App::environment()
 
-	));
+	// ));
 
 });
 
