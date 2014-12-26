@@ -29,7 +29,7 @@ Route::get('/debug', function(){
 		'env' => $_ENV['LARAVEL_ENV'],
 		'laravelEnv' => App::environment()
 
-	));
+	)));
 
 });
 
