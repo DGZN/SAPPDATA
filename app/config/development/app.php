@@ -15,6 +15,6 @@ return array(
 
 	'debug' => true,
 
-	'url' => 'http://198.58.98.154/',
+	'url' => 'http://localhost:8888/',
 
 );

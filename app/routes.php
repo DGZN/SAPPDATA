@@ -58,6 +58,7 @@ Route::group(array('before' => 'auth'), function()
 
 	});
 
+	
 	Route::resource('/admin/translations', 'TranslationsController');
 
 	Route::resource('/admin/transliterates', 'TransliteratesController');
