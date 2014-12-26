@@ -22,9 +22,14 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::get('/abbas', function(){
+Route::get('/debug', function(){
 
-	return 'Hello Abbas!';
+	die(json_encode(array(
+
+		'env' = $_SERVER['LARAVEL_ENV'],
+		'laravelEnv' => App::environment();
+
+	));
 
 });
 
