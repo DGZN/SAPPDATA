@@ -24,12 +24,7 @@ Route::get('/', function()
 
 Route::get('/debug', function(){
 
-	die(json_encode(array(
-
-		'env' => $_ENV['LARAVEL_ENV'],
-		'laravelEnv' => App::environment()
-
-	)));
+	return App::environment();
 
 });
 
