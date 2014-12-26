@@ -1,0 +1,144 @@
+@extends('layouts.sidebar-theme')
+
+@section('content')
+
+	<style>
+
+	.activist-table .bold {
+		font-weight: bold;
+	}
+
+	</style>
+	<div class="row">
+
+		<div class="col-md-3">
+
+			<h1>{{$activist->first_name . ' ' . $activist->last_name }}</h1>
+
+			<div class="table-responsive">
+				  
+					<table class="table activist-table">
+					
+
+						@if ($activist)
+
+								<tr>
+
+									<td class="bold">First Name: </td>
+
+									<td>{{ $activist->first_name }}</td>
+
+								</tr>
+
+								<tr>
+
+									<td class="bold">Last Name: </td>
+
+									<td>{{ $activist->last_name }}</td>
+
+								</tr>
+
+								<tr>
+
+									<td class="bold">Nickname: </td>
+
+									<td>{{ $activist->nickname }}</td>
+
+								</tr>
+
+								<tr>
+
+									<td class="bold">DOB: </td>
+
+									<td>{{ $activist->date_of_birth }}</td>
+
+								</tr>
+
+								<tr>
+
+									<td class="bold">Marital Status: </td>
+
+									<td>{{ $activist->maritalStatus }}</td>
+
+								</tr>
+
+								<tr>
+
+									<td class="bold">Gender: </td>
+
+									<td>{{ $activist->gender }}</td>
+
+								</tr>
+
+								<tr>
+
+									<td class="bold">City of Birth: </td>
+
+									<td>{{ $activist->cityOfBirth }}</td>
+
+								</tr>
+
+								<tr>
+
+									<td class="bold">City of Residence: </td>
+
+									<td>{{ $activist->cityOfResidence }}</td>
+
+								</tr>
+
+								<tr>
+
+									<td class="bold">First Name (Arabic): </td>
+
+									<td>{{ $activist->firstNameArabLit }}</td>
+
+								</tr>
+
+								<tr>
+
+									<td class="bold">Last Name (Arabic): </td>
+
+									<td>{{ $activist->lastNameArabLit }}</td>
+
+								</tr>
+
+								<tr>
+
+									<td class="bold">Occupation: </td>
+
+									<td>{{ $activist->occupation }}</td>
+
+								</tr>
+
+								<tr>
+
+									<td class="bold">Notes: </td>
+
+									<td>{{ $activist->notes }}</td>
+
+								</tr>
+
+								<tr>
+
+									<td class="bold">Admin Notes: </td>
+
+									<td>{{ $activist->adminNotes }}</td>
+
+								</tr>
+
+								<tr>
+
+									<td class="bold">Created At </td>
+
+									<td>{{ $activist->created_at }}</td>
+
+								</tr>
+
+						@endif
+
+					</table>
+
+			</div>
+
+	</div>
+@stop
