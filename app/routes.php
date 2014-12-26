@@ -28,8 +28,6 @@ Route::get('/debug', function(){
 
 });
 
-Route::resource('/users', 'UsersController');
-
 Route::get('/admin/login', 'SessionsController@create');
 
 Route::get('/admin/logout', 'SessionsController@destroy');
@@ -66,7 +64,7 @@ Route::group(array('before' => 'auth'), function()
 
 	Route::resource('/admin', 'AdministratorController');
 
-	
+	Route::resource('/users', 'UsersController');
 	
 	Route::resource('/transliterates', 'TransliteratesController');
 	
