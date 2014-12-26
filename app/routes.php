@@ -26,7 +26,7 @@ Route::get('/debug', function(){
 
 	die(json_encode(array(
 
-		'env' = $_SERVER['LARAVEL_ENV'],
+		'env' => getenv['LARAVEL_ENV'],
 		'laravelEnv' => App::environment();
 
 	));
