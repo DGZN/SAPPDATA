@@ -53,6 +53,14 @@
 
 								<tr>
 
+									<td class="bold">Links: </td>
+
+									<td>{{ $case->links }}</td>
+
+								</tr>
+
+								<tr>
+
 									<td class="bold">Added: </td>
 
 									<td>{{ $case->created_at }}</td>
