@@ -9,6 +9,7 @@ class ActiveCase extends Eloquent {
 		'type',
 		'name',
 		'notes',
+		'links',
 		'admin_id'
 
 	];
@@ -19,6 +20,7 @@ class ActiveCase extends Eloquent {
 		'type',
 		'name',
 		'notes',
+		'links',
 		'admin_id'
 
 	];

@@ -60,6 +60,16 @@
 
 					</div>
 
+					<div class="form-group">
+
+						{{ Form::label('links', 'Links: ') }}
+						
+						{{ Form::textarea('links', null, array('class' => 'form-control')) }}
+
+						{{ $errors->first('links', '<span class="errors">:message</span>') }}
+
+					</div>
+
 					<div> {{ Form::submit('Add Case', array('class' => 'btn btn-primary pull-right')) }} </div>
 
 				{{ Form::close() }}
