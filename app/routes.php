@@ -19,7 +19,22 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('frontend.index');
+});
+
+Route::get('/reports', function()
+{
+	return View::make('frontend.reports');
+});
+
+Route::get('/contact-us', function()
+{
+	return View::make('frontend.contact');
+});
+
+Route::get('/faqs', function()
+{
+	return View::make('frontend.faqs');
 });
 
 Route::get('/debug', function(){

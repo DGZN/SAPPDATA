@@ -8,10 +8,15 @@
 		font-weight: bold;
 	}
 
+	.profile-img {
+		width: 150px;
+		padding-bottom: 2em;
+	}
+
 	</style>
 	<div class="row">
 
-		<div class="col-md-3">
+		<div class="col-md-6">
 
 			<h1>{{$activist->first_name . ' ' . $activist->last_name }}</h1>
 
@@ -21,6 +26,14 @@
 					
 
 						@if ($activist)
+
+								<tr>
+
+
+								<img src="{{ URL::asset('uploads/')  }}/{{$activist->thumbnail}}" class="profile-img img-responsive img-rounded" >
+									
+
+								</tr>
 
 								<tr>
 

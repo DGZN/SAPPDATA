@@ -4,6 +4,8 @@ class ActivistsController extends \BaseController {
 
 	
 	protected $activist;
+
+	protected $attachmentErrors;
 	
 
 	public function __construct( Activist $activist )
@@ -42,16 +44,45 @@ class ActivistsController extends \BaseController {
 	 */
 	public function store()
 	{
+
 		$input = Input::all();
 
-		if ( ! $this->activist->fill($input)->isValid())
+		$attachment = Input::file('thumbnail');
+
+		$uploadSuccess = False;
+
+		$thumbnail = array(
+
+			'name' 	      => $attachment->getClientOriginalName(),
+			'mime_type'	  => $attachment->getMimeType(),
+			'real_path'   => $attachment->getRealPath(),
+			'extension'   => $attachment->getClientOriginalExtension(),
+			'destination' => 'uploads/',
+			'randName'    => str_random(32).'.'.$attachment->getClientOriginalExtension()
+
+		);
+
+		if ( ! $this->attachmentValid($attachment) )
+		{
+			return Redirect::back()->withInput()->withErrors( $this->attachmentErrors );
+		}
+
+		if ( ! $this->activist->fill($input)->isValid() )
 		{
 			return Redirect::back()->withInput()->withErrors( $this->activist->errors );
 		}
 
+		$upload_success = Input::file('thumbnail')->move( $thumbnail['destination'], $thumbnail['randName'] );
+
+		if ( $upload_success ) $uploadSuccess = true;
+
+		if ( ! $uploadSuccess ) return Response::json('Error uploading attachment', 400);
+
+		$this->activist->thumbnail = $thumbnail['randName'];
+
 		$this->activist->save();
 
-		return Redirect::route('/admin/activists');
+		return Redirect::route('activists');
 	}
 
 
@@ -63,8 +94,8 @@ class ActivistsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$activist = $this->activist->find($id)->first();
-		return View::make('activists.show', ['activist' => $activist, 'activists' => $activist]);
+		$activist = $this->activist->find($id);
+		return View::make('activists.show', [ 'activist' => $activist ]);
 	}
 
 
@@ -102,6 +133,29 @@ class ActivistsController extends \BaseController {
 	{
 		//
 	}
+
+	private function attachmentValid($file)
+	{
+	    $validation = Validator::make(
+
+		    [
+		    	'attachment' => $file,
+		        'extension'  => \Str::lower($file->getClientOriginalExtension()),
+			],
+
+			[
+				'attachment' => 'required|max:10000',
+		        'extension'  => 'required|in:jpg,jpeg,bmp,png',
+			]
+
+	    );
+	    
+	    if ( $validation->passes() ) return true;
+
+	    $this->attachmentErrors = $validation->messages();
+
+	    return false;
+	} 
 
 
 }

@@ -9,7 +9,7 @@
 
 				<h2>Create New Activist</h2>
 
-				{{ Form::open( [ 'route' => 'activists.store' ] ) }}
+				{{ Form::open( [ 'route' => 'activists.store', 'files' => true ] ) }}
 
 					<div class="form-group">
 
@@ -48,6 +48,16 @@
 						{{ Form::text('date_of_birth', null, array('class' => 'form-control')) 			 }}
 
 						{{ $errors->first('date_of_birth', '<span class="errors">:message</span>') }}
+
+					</div>
+
+					<div class="form-group">
+
+						{{ Form::label('thumbnail', 'Thumbnail: ') }}
+
+						{{ Form::file('thumbnail', '') }}
+
+						{{ $errors->first('thumbnail', '<span class="errors">:message</span>') }}
 
 					</div>
 

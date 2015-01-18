@@ -16,7 +16,8 @@ class Activist extends Eloquent {
 		'lastNameArabLit',
 		'occupation',
 		'adminNotes',
-		'admin_id'
+		'admin_id',
+		'thumbnail'
 
 	];
 
@@ -49,6 +50,6 @@ class Activist extends Eloquent {
 		$this->errors = $validation->messages();
 
 		return false;
-	}
+	} 
 
 }
