@@ -46,6 +46,13 @@
                     </ul>
                 </li>
                 <li>
+                    <a href="/admin/cases">Cases</a>
+                    <ul id="nav-cases" class="@if ( ! isset($cases) ) {{ 'hide' }} @endif">
+                        <li><a href="/admin/cases">All Cases</a></li>
+                        <li><a href="/admin/cases/create">Create Case</a></li>
+                    </ul>
+                </li>
+                <li>
                     <a href="/admin/translations">Translations</a>
                     <ul id="nav-translations" class="@if ( ! isset($translations) ) {{ 'hide' }} @endif">
                     	<li><a href="/admin/translations">All Translations</a></li>

@@ -59,7 +59,6 @@ Route::group(array('before' => 'auth'), function()
 
 	Route::get('/admin/users/create', 'UsersController@create');
 	
-
 	Route::get('/admin/activists/create', 'ActivistsController@create');
 
 	Route::get('/admin/activists/{id}', 'ActivistsController@show');
@@ -71,10 +70,23 @@ Route::group(array('before' => 'auth'), function()
 
 	});
 
+	Route::get('/admin/cases/create', 'CasesController@create');
+	
+	Route::get('/admin/cases/{id}', 'CasesController@show');
+
+	Route::get('/admin/cases', function (){
+
+		$cases = new ActiveCase;
+		return View::make('cases.index', ['cases' => $cases::all()]);
+
+	});
+
 	
 	Route::resource('/admin/translations', 'TranslationsController');
 
 	Route::resource('/admin/transliterates', 'TransliteratesController');
+
+	Route::resource('cases', 'CasesController');
 
 	Route::resource('/admin', 'AdministratorController');
 
@@ -85,6 +97,9 @@ Route::group(array('before' => 'auth'), function()
 	Route::resource('/translations', 'TranslationsController');
 	
 	Route::resource('activists', 'ActivistsController');
+
+
+
 
 });
 
