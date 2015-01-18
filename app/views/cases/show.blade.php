@@ -61,7 +61,15 @@
 
 								<tr>
 
-									<td class="bold">Added: </td>
+									<td class="bold">Admin Author: </td>
+
+									<td>{{ $admin->email }}</td>
+
+								</tr>
+
+								<tr>
+
+									<td class="bold">Added On: </td>
 
 									<td>{{ $case->created_at }}</td>
 

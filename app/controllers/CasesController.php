@@ -50,6 +50,8 @@ class CasesController extends \BaseController {
 			return Redirect::back()->withInput()->withErrors( $this->activeCase->errors );
 		}
 
+		$this->activeCase->admin_id = Auth::id();
+
 		$this->activeCase->save();
 
 		$cases = new ActiveCase;
@@ -67,7 +69,8 @@ class CasesController extends \BaseController {
 	public function show($id)
 	{
 		$case = $this->activeCase->find($id);
-		return View::make('cases.show', [ 'case' => $case ]);
+		$admin = ( new User )->find($case->admin_id);
+		return View::make('cases.show', [ 'case' => $case, 'admin' => $admin ]);
 	}
 
 
