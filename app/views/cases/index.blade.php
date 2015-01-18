@@ -19,7 +19,7 @@
 
 								<td> 
 
-									{{ link_to( "/admin/cases/{$case->name}", $case->id) }} 
+									{{ link_to( "/admin/cases/{$case->id}", $case->name) }} 
 
 								</td>
 
