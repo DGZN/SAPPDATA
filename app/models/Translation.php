@@ -13,9 +13,9 @@ class Translation extends Eloquent {
 
 	public static $rules = [
 
-		'wordInFarsi', 
-		'wordInTurkish', 
-		'wordInEnglish'
+		'wordInFarsi' => 'required|unique:translations', 
+		'wordInTurkish'  => 'required|unique:translations', 
+		'wordInEnglish'  => 'required|unique:translations'
 
 	];
 

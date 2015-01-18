@@ -74,29 +74,42 @@
                             <i class="fa fa-times"></i>
                         </a>
                     </li>
-                    <!-- END Menu Toggle -->
-                    <li class="active">
+                    <!-- END Menu Togglxe -->
+
+                    <li {{ (Request::is('*/') ? 'class="active"' : '') }}>
+                        
                         <a href="/">Home</a>
+
                     </li>
-                    
-                    <li>
+
+                    <li {{ (Request::is('*reports') ? 'class="active"' : '') }}>
+                        
                         <a href="/reports">Reports</a>
+
                     </li>
 
-                    <li>
+                    <li {{ (Request::is('*transliterates') ? 'class="active"' : '') }}>
+                        
                         <a href="#">Transliterates</a>
+
                     </li>
 
-                    <li>
+                    <li {{ (Request::is('*translations') ? 'class="active"' : '') }}>
+                        
                         <a href="#">Translations</a>
-                    </li>
-                    
-                    <li>
-                        <a href="/faqs">FAQs</a>
+
                     </li>
 
-                    <li>
+                    <li {{ (Request::is('*faqs') ? 'class="active"' : '') }}>
+                        
+                        <a href="/faqs">FAQs</a>
+
+                    </li>
+
+                    <li {{ (Request::is('*contact-us') ? 'class="active"' : '') }}>
+                        
                         <a href="/contact-us">Contact Us</a>
+
                     </li>
                     
                 </ul>

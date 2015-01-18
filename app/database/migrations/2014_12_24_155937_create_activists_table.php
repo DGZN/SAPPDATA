@@ -12,6 +12,30 @@ class CreateActivistsTable extends Migration {
 	 */
 	public function up()
 	{
+		
+		/*
+
+		{
+			_token: "RT0NPIBceuwsdEtQVnfjieVqkdWXPWvQORLvu3ds",
+			first_name: "First Name",
+			last_name: "Last Name",
+			nickname: "KLD",
+			date_of_birth: "12 15 1988",
+			maritalStatus: "divorced",
+			gender: "male",
+			cityOfBirth: "Chiba",
+			cityOfResidence: "glencoe",
+			firstNameArabLit: "firstName_Arabic",
+			lastNameArabLit: "lastName_Arabic",
+			occupation: "Engineer",
+			notes: "General Notes",
+			adminNotes: "Admin Notes",
+			thumbnail: { }
+		}
+
+		*/
+
+		
 		Schema::create('activists', function(Blueprint $table)
 		{
 			$table->increments('id');

@@ -17,9 +17,19 @@
 
 							<tr>
 
-								<td> {{ link_to( "/admin/activists/{$activist->id}", $activist->first_name) }} </td>
+								<td> 
 
-							<tr>
+									{{ link_to( "/admin/activists/{$activist->id}", $activist->first_name) }} 
+
+								</td>
+
+								<td class="pull-right">
+
+								<input type="button" class="btn btn-primary btn-sm" id="del_activist_{{ $activist->id }}" value="Delete" >
+
+								</td>
+
+							</tr>
 
 						@endforeach
 

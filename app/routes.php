@@ -15,8 +15,6 @@
 |
 */
 
-
-
 Route::get('/', function()
 {
 	return View::make('frontend.index');
@@ -86,7 +84,7 @@ Route::group(array('before' => 'auth'), function()
 	
 	Route::resource('/translations', 'TranslationsController');
 	
-	Route::resource('/activists', 'ActivistsController');
+	Route::resource('activists', 'ActivistsController');
 
 });
 

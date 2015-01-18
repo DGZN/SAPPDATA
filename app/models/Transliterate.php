@@ -7,8 +7,8 @@ class Transliterate extends Eloquent {
 
 	public static $rules = [
 
-		'wordInArabic' => 'required',
-		'wordInLatin' => 'required'
+		'wordInArabic' => 'required|unique:transliterates', 
+		'wordInLatin' => 'required|unique:transliterates'
 
 	];
 

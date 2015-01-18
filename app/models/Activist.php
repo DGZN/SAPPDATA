@@ -12,9 +12,11 @@ class Activist extends Eloquent {
 		'maritalStatus',
 		'gender',
 		'cityOfBirth',
+		'cityOfResidence',
 		'firstNameArabLit',
 		'lastNameArabLit',
 		'occupation',
+		'notes',
 		'adminNotes',
 		'admin_id',
 		'thumbnail'

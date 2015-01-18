@@ -82,7 +82,9 @@ class ActivistsController extends \BaseController {
 
 		$this->activist->save();
 
-		return Redirect::route('activists');
+		$activists = new Activist;
+		
+		return View::make('activists.index', ['activists' => $activists::all()]);
 	}
 
 
