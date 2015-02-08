@@ -22,7 +22,7 @@ class ActivistsController extends \BaseController {
 	{
 		$activists = $this->activist;
 
-		return $activists::all();
+		return View::make('activists.index', ['activists' => $activists::all()]);
 	}
 
 

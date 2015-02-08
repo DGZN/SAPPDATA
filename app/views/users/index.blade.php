@@ -17,7 +17,7 @@
 
 							<tr>
 
-								<td> {{ link_to( "/users/{$user->id}", $user->email) }} </td>
+								<td> {{ link_to( "admin/users/{$user->id}", $user->email) }} </td>
 
 							<tr>
 

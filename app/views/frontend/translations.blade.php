@@ -9,8 +9,8 @@
     <!-- Intro -->
     <section class="site-section site-section-light site-section-top">
         <div class="container text-center">
-            <h1 class="animation-slideDown"><strong>Welcome to our report database!</strong></h1>
-            <h2 class="h3 animation-slideUp hidden-xs">Explore over 5,000 reports!</h2>
+            <h1 class="animation-slideDown"><strong>Welcome to our translations database!</strong></h1>
+            <h2 class="h3 animation-slideUp hidden-xs"></h2>
         </div>
     </section>
     <!-- END Intro -->
@@ -37,22 +37,21 @@
         <!-- END Seach Form -->
 
         <!-- New Arrivals -->
-        <h2 class="site-heading"><strong>Recent</strong> Reports</h2>
+        <h2 class="site-heading"><strong>Translations</strong></h2>
         <hr>
 
-        <table id="casesTable" class="cel-border hover stripe traces-table">
+        <table id="transliteratesTable" class="cel-border hover stripe traces-table">
 
             <thead>
                 <tr>
                     
-                    <th>Name</th>
-                    <th>Notes</th>
-                    <th>Date</th>
+                    <th>Arabic</th>
+                    <th>Latin</th>
 
                 </tr>
             </thead>
 
-            <tbody class="casesBody">
+            <tbody class="transliteratesBody">
 
 
 
@@ -86,8 +85,8 @@
 <script type="text/javascript">
     $(document).ready(function() {
         baseURL = '/'
-        casesTable = $('#casesTable').DataTable({
-            'ajax': baseURL + 'api/v1/cases',
+        transliteratesTable = $('#transliteratesTable').DataTable({
+            'ajax': baseURL + 'api/v1/transliterates',
             "order": [[ 0, "desc" ]]
         });
     });

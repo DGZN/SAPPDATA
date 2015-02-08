@@ -25,7 +25,11 @@
 
 								<td class="pull-right">
 
-								<input type="button" class="btn btn-primary btn-sm" id="del_case_{{ $case->id }}" value="Delete" >
+									{{ Form::open(['route' => ['cases.destroy', $case->id], 'method' => 'delete']) }}
+
+									{{ Form::submit('Delete', array('class' => 'btn btn-primary')) }} 
+
+									{{ Form::close() }}
 
 								</td>
 

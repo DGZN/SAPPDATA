@@ -70,6 +70,7 @@ class CasesController extends \BaseController {
 	{
 		$case = $this->activeCase->find($id);
 		$admin = ( new User )->find($case->admin_id);
+		
 		return View::make('cases.show', [ 'case' => $case, 'admin' => $admin ]);
 	}
 
@@ -106,7 +107,13 @@ class CasesController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		if ( ! $this->activeCase->find($id) ) return Redirect::back();
+
+		$activeCase = $this->activeCase->find($id);
+
+		$activeCase->delete();
+
+		return Redirect::back();
 	}
 
 

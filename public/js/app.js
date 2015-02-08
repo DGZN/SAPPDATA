@@ -142,5 +142,69 @@ var App = function() {
     };
 }();
 
-/* Initialize app when page loads */
-$(function(){ App.init(); });
+/*-------------------------------------
+|                
+|                SAPData
+| 
+|--------------------------------------
+|
+| @param
+|
+|
+|
+|
+*/
+
+  SAPData = {
+
+
+    init: function() {
+        
+        console.group('~ SAPData Instantiated ~')
+        console.log('------------------------> Getting token')
+        console.log($('meta[name="token"]').attr('content'))
+        return this.cases()
+    },
+
+    cases: function() {
+
+      // $.ajax({
+      //   url: '/api/cases',
+      //   success: function( data ){
+
+      //     console.log('----------------------> Getting cases')
+      //     console.log(data)
+      //     console.groupEnd()
+
+      //   },
+
+      //   dataType: "JSON"
+      // })
+      
+      // ajax({
+
+      //       url: '/api/cases',
+
+      //       type: 'GET',
+
+      //       beforeSend: function(xhr) { xhr.setRequestHeader (
+
+      //           "Authorization",     
+
+      //           "Basic " + btoa('keiichi.lindley@gmail.com' + ":" + '123123123')); }
+
+      //       })
+
+           
+
+      // });
+
+
+    }
+
+}
+
+
+$(function(){ App.init() });
+
+$(function(){ SAPData.init()})

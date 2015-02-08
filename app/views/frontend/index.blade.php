@@ -4,6 +4,14 @@
 
 @section('content')
 
+<style>
+
+    .activist-img {
+        width: 200px;
+    }
+
+    </style>
+
 <!-- Intro -->
 <section class="site-section site-section-light site-section-top themed-background-dark">
     <div class="container">
@@ -16,127 +24,51 @@
 <!-- Jobs -->
 <section class="site-content site-section">
     <div class="container">
-        <h2 class="site-heading"><strong>Featured</strong> Reports</h2>
-        <hr>
+        <h2 class="site-heading"><strong>Recent</strong> Cases</h2>
+        <hr> 
         <div class="row store-items">
-            <div class="col-md-4 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInQuick" data-element-offset="-100">
-                <a href="javascript:void(0)" class="store-item">
-                    <div class="store-item-rating themed-color">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <div class="store-item-icon">
-                        <i class="gi gi-brush themed-color-amethyst"></i>
-                    </div>
-                    <div class="store-item-info clearfix">
-                        <span class="store-item-price themed-color-dark pull-right">$900</span>
-                        <strong>Web Design</strong><br>
-                        <span class="text-muted">from <strong>TheStudio</strong></span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInQuick" data-element-offset="-100">
-                <a href="javascript:void(0)" class="store-item">
-                    <div class="store-item-rating themed-color">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <div class="store-item-icon">
-                        <i class="gi gi-cogwheel themed-color-flatie"></i>
-                    </div>
-                    <div class="store-item-info clearfix">
-                        <span class="store-item-price themed-color-dark pull-right">$1200</span>
-                        <strong>Web Development</strong><br>
-                        <span class="text-muted">from <strong>WeBuild</strong></span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInQuick" data-element-offset="-100">
-                <a href="javascript:void(0)" class="store-item">
-                    <div class="store-item-rating themed-color">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <div class="store-item-icon">
-                        <i class="gi gi-vector_path_all themed-color-fire"></i>
-                    </div>
-                    <div class="store-item-info clearfix">
-                        <span class="store-item-price themed-color-dark pull-right">$600</span>
-                        <strong>Logo Design</strong><br>
-                        <span class="text-muted">from <strong>LogoKing</strong></span>
-                    </div>
-                </a>
-            </div>
+
+            @foreach ( $cases as $case )
+
+                <div class="col-md-4 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInQuick" data-element-offset="-100">
+                    <a href="javascript:void(0)" class="store-item">
+                        <div class="store-item-icon">
+                            <i class="gi gi-vector_path_all themed-color-fire"></i>
+                        </div>
+                        <div class="store-item-info clearfix">
+                            <!-- <span class="store-item-price themed-color-dark pull-right">$1000</span> -->
+                            <strong>{{ $case->name }} {{ $case->added_on }}</strong><br>
+                            <span class="text-muted"><strong>{{ $case->notes }}</strong></span>
+                        </div>
+                    </a>
+                </div>
+
+            @endforeach
+
         </div>
-        <h2 class="site-heading"><strong>Reecnt</strong> Cases</h2>
+
+        <h2 class="site-heading"><strong>Recent</strong> Activists</h2>
         <hr>
+        
         <div class="row store-items">
-            <div class="col-md-4 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInQuick" data-element-offset="-100">
-                <a href="javascript:void(0)" class="store-item">
-                    <div class="store-item-rating themed-color">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <div class="store-item-icon">
-                        <i class="gi gi-charts themed-color-default"></i>
-                    </div>
-                    <div class="store-item-info clearfix">
-                        <span class="store-item-price themed-color-dark pull-right">$1000</span>
-                        <strong>Marketing</strong><br>
-                        <span class="text-muted">from <strong>MarketGuru</strong></span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInQuick" data-element-offset="-100">
-                <a href="javascript:void(0)" class="store-item">
-                    <div class="store-item-rating themed-color">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <div class="store-item-icon">
-                        <i class="gi gi-pizza themed-color-fire"></i>
-                    </div>
-                    <div class="store-item-info clearfix">
-                        <span class="store-item-price themed-color-dark pull-right">$350</span>
-                        <strong>Icon Design</strong><br>
-                        <span class="text-muted">from <strong>IconTeam</strong></span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInQuick" data-element-offset="-100">
-                <a href="javascript:void(0)" class="store-item">
-                    <div class="store-item-rating themed-color">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <div class="store-item-icon">
-                        <i class="gi gi-airplane themed-color-fancy"></i>
-                    </div>
-                    <div class="store-item-info clearfix">
-                        <span class="store-item-price themed-color-dark pull-right">$2500</span>
-                        <strong>Consultant</strong><br>
-                        <span class="text-muted">from <strong>StayTrue</strong></span>
-                    </div>
-                </a>
-            </div>
+
+            @foreach ( $activists as $activist )
+
+                <div class="col-md-4 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInQuick" data-element-offset="-100">
+                    <a href="javascript:void(0)" class="store-item">
+                        <div class="store-item-icon">
+                            <img src="{{ URL::asset('uploads/')  }}/{{$activist->thumbnail}}" class="activist-img img-rounded" >
+                        </div>
+                        <div class="store-item-info clearfix">
+                            <!-- <span class="store-item-price themed-color-dark pull-right">$1000</span> -->
+                            <strong>{{ $activist->first_name }} {{ $activist->last_name }}</strong><br>
+                            <span class="text-muted"><strong>{{ $activist->occupation }}</strong></span>
+                        </div>
+                    </a>
+                </div>
+
+            @endforeach
+
         </div>
     </div>
 </section>

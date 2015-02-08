@@ -10,6 +10,9 @@
         <meta name="author" content="DGZN">
         <!-- <meta name="robots" content="--FIX THIS--"> -->
 
+        <meta name="env" content="{{ App::environment() }}">
+        <meta name="token" content="{{ Session::token() }}">
+
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
 
         <!-- Icons -->
@@ -38,6 +41,10 @@
         <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
         <link rel="stylesheet" href="css/themes.css">
         <!-- END Stylesheets -->
+
+        <!-- Datatables CSS -->
+        <link rel="stylesheet" href="//cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="//cdn.datatables.net/plug-ins/3cfcc339e89/integration/bootstrap/3/dataTables.bootstrap.css">
 
         <!-- Modernizr (browser feature detection library) & Respond.js (Enable responsive CSS code on browsers that don't support it, eg IE8) -->
         <script src="js/vendor/modernizr-2.7.1-respond-1.4.2.min.js"></script>
@@ -90,13 +97,13 @@
 
                     <li {{ (Request::is('*transliterates') ? 'class="active"' : '') }}>
                         
-                        <a href="#">Transliterates</a>
+                        <a href="/view-transliterates">Transliterates</a>
 
                     </li>
 
                     <li {{ (Request::is('*translations') ? 'class="active"' : '') }}>
                         
-                        <a href="#">Translations</a>
+                        <a href="view-translations">Translations</a>
 
                     </li>
 
@@ -177,6 +184,10 @@
     <!-- Bootstrap.js, Jquery plugins and Custom JS code -->
     <script src="js/vendor/bootstrap.min.js"></script>
     <script src="js/plugins.js"></script>
+
+    <!-- Datatables JS -->
+    <script src="//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+
     <script src="js/app.js"></script>
 
      @yield('footer-scripts')

@@ -29,6 +29,27 @@ class Translation extends Eloquent {
 
 	public $errors;
 
+	public function datatables()
+	{
+		$translations = (new Translation)->all();
+
+		$data = [];
+
+		foreach ( $translations as $translation ) {
+			
+			$data['data'][] = [
+
+				$translation->wordInFarsi,
+				$translation->wordInTurkish,
+				$translation->wordInEnglish
+
+			];
+
+		}
+
+		return $data;
+	}
+
 	public function isValid()
 	{
 		$validation = Validator::make( $this->attributes, static::$rules );

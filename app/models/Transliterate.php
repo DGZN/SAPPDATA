@@ -20,9 +20,27 @@ class Transliterate extends Eloquent {
 
 	protected $table = 'transliterates';
 
-	
-
 	public $errors;
+
+	public function datatables()
+	{
+		$transliterates = (new Transliterate)->all();
+
+		$data = [];
+
+		foreach ( $transliterates as $transliterate ) {
+			
+			$data['data'][] = [
+
+				$transliterate->wordInArabic,
+				$transliterate->wordInLatin
+
+			];
+
+		}
+
+		return $data;
+	}
 
 	public function isValid()
 	{
