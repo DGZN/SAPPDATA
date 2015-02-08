@@ -57,6 +57,12 @@ Route::get('/debug', function(){
 
 });
 
+Route::get('/admin/login', 'SessionsController@create');
+
+Route::get('/admin/logout', 'SessionsController@destroy');
+
+Route::resource('sessions', 'SessionsController');
+
 Route::group(array('before' => 'auth'), function()
 {
 
