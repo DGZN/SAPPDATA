@@ -70,7 +70,7 @@
 
 					</div>
 
-					<div> {{ Form::submit('Add Case', array('class' => 'btn btn-primary pull-right')) }} </div>
+					<div> {{ Form::submit('Create Case', array('class' => 'btn btn-success pull-right')) }} </div>
 
 				{{ Form::close() }}
 

@@ -164,7 +164,7 @@
 
 					</div>
 
-					<div> {{ Form::submit('Create Activist', array('class' => 'btn btn-primary pull-right')) }} </div>
+					<div> {{ Form::submit('Create Activist', array('class' => 'btn btn-success pull-right')) }} </div>
 
 				{{ Form::close() }}
 

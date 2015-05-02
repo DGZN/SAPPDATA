@@ -1,45 +1,41 @@
 @extends('layouts.sidebar-theme')
 
 @section('content')
-	<div class="row">
-
-		<div class="col-md-6">
+	<div class="row form-group">
 
 			<h1>Create New Translation</h1>
 
 			{{ Form::open( [ 'route' => 'translations.store' ] ) }}
 
-				<div class="form-group">
+			<div class="col-md-6">
 
-					{{ Form::label('wordInFarsi', 'Word In Farsi: ') }}
+				{{ Form::label('wordInFarsi', 'Word In Farsi: ') }}
 
-					{{ Form::text('wordInFarsi', null, array('class' => 'form-control')) 			     }}
+				{{ Form::text('wordInFarsi', null, array('class' => 'form-control')) 			     }}
 
-					{{ $errors->first('wordInFarsi', '<span class="errors">:message</span>') }}
+				{{ $errors->first('wordInFarsi', '<span class="errors">:message</span>') }}
 
-				</div>
+				<br/>
 
-				<div>
+				{{ Form::label('wordInTurkish', 'Word In Turkish: ') }}
+				
+				{{ Form::text('wordInTurkish', null, array('class' => 'form-control')) 			 }}
 
-					{{ Form::label('wordInTurkish', 'Word In Turkish: ') }}
-					
-					{{ Form::text('wordInTurkish', null, array('class' => 'form-control')) 			 }}
+				{{ $errors->first('wordInTurkish', '<span class="errors">:message</span>') }}
 
-					{{ $errors->first('wordInTurkish', '<span class="errors">:message</span>') }}
+				<br/>
 
-				</div>
+				{{ Form::label('wordInEnglish', 'Word In English: ') }}
+				
+				{{ Form::text('wordInEnglish', null, array('class' => 'form-control')) 			 }}
 
-				<div>
+				{{ $errors->first('wordInEnglish', '<span class="errors">:message</span>') }}
 
-					{{ Form::label('wordInEnglish', 'Word In English: ') }}
-					
-					{{ Form::text('wordInEnglish', null, array('class' => 'form-control')) 			 }}
+				<br/>
 
-					{{ $errors->first('wordInEnglish', '<span class="errors">:message</span>') }}
+				{{ Form::submit('Create Translation', array('class' => 'btn btn-primary pull-right')) }} 
 
-				</div>
-
-				<div> {{ Form::submit('Create Translation', array('class' => 'btn btn-primary pull-right')) }} </div>
+			</div>
 
 			{{ Form::close() }}
 

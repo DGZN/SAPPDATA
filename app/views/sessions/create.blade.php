@@ -1,8 +1,14 @@
-@extends('layouts.sidebar-theme')
+@extends('layouts.sidebar-theme-login')
 
 @section('content')
 
 	<style>
+
+		body {
+			background-color: rgba(33,33,33,1);
+			color: rgba(255,255,255,.9);
+			font-weight: 200;
+		}
 
 		.form-group.login-form {
 			position: relative;
@@ -24,7 +30,7 @@
 
 	<div class="row">
 
-		<div class="col-md-4">
+		<div class="col-md-6 col-md-offset-1">
 
 			{{ Form::open( [ 'route' => 'sessions.store' ] ) }}
 

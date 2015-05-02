@@ -81,7 +81,7 @@
 
 					</div>
 
-					<div> {{ Form::submit('Edit Case', array('class' => 'btn btn-primary pull-right')) }} </div>
+					<div> {{ Form::submit('Save Case', array('class' => 'btn btn-success pull-right')) }} </div>
 
 				{{ Form::close() }}
 

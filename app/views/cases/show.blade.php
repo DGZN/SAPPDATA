@@ -75,6 +75,23 @@
 
 								</tr>
 
+								<tr>
+
+									<td>
+										
+									</td>
+
+									<td class="pull-right">
+
+										{{ Form::open(['url' => ["/admin/cases/$case->id/edit"]]) }}
+
+										{{ Form::submit('Edit Case', array('class' => 'btn btn-primary')) }} 
+
+										{{ Form::close() }}
+
+									</td>
+
+								</tr>
 						@endif
 
 					</table>

@@ -147,6 +147,22 @@
 
 								</tr>
 
+								<tr>
+
+									<td></td>
+
+									<td class="pull-right">
+
+										{{ Form::open(['url' => ["/admin/activists/$activist->id/edit"]]) }}
+
+										{{ Form::submit('Edit', array('class' => 'btn btn-success')) }} 
+
+										{{ Form::close() }}
+
+									</td>
+								
+								</tr>
+
 						@endif
 
 					</table>

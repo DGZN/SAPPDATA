@@ -34,15 +34,12 @@
                         SAPP Data Admin
                     </a>
                 </li>
-                <li>
-                    <a href="/admin">Dashboard</a>
-                </li>
                 @if (isset(Auth::user()->su))
                 <li>
                     <a href="/admin/users">Admins</a>
                     <ul id="nav-users" class="@if ( ! isset($users) ) {{ 'hide' }} @endif">
-                    	<li><a href="/admin/users">All Users</a></li>
-                    	<li><a href="/admin/users/create">Create User</a></li>
+                    	<li><a href="/admin/users">All Admins</a></li>
+                    	<li><a href="/admin/users/create">Create Admin</a></li>
                     </ul>
                 </li>
                 @endif
@@ -73,6 +70,9 @@
                     	<li><a href="/admin/transliterates">All Transliterates</a></li>
                     	<li><a href="/admin/transliterates/create">Create Transliterate</a></li>
                     </ul>
+                </li>
+                <li>
+                    <a href="/admin/logout">Logout</a>
                 </li>
             </ul>
         </div>

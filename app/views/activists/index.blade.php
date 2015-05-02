@@ -19,7 +19,7 @@
 
 								<td> 
 
-									{{ link_to( "/admin/activists/{$activist->id}", $activist->first_name) }} 
+									{{ link_to( "/admin/activists/{$activist->id}", $activist->first_name . ' ' . $activist->last_name) }} 
 
 								</td>
 
@@ -27,19 +27,9 @@
 
 								{{ Form::open(array('url' => '/api/v1/activists/' . $activist->id, 'method' => 'delete' )) }}
 
-									<input type="submit" class="btn btn-primary btn-sm" id="del_activist_{{ $activist->id }}" value="Delete" >
+									<input type="submit" class="btn btn-danger btn-sm" id="del_activist_{{ $activist->id }}" value="Delete" >
 
 								{{ Form::close() }}
-
-								</td>
-
-								<td class="pull-right">
-
-									{{ Form::open(['url' => ["/admin/activists/$activist->id/edit"]]) }}
-
-									{{ Form::submit('Edit', array('class' => 'btn btn-success')) }} 
-
-									{{ Form::close() }}
 
 								</td>
 

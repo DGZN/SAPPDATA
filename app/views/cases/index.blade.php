@@ -27,17 +27,7 @@
 
 									{{ Form::open(['route' => ['cases.destroy', $case->id], 'method' => 'delete']) }}
 
-									{{ Form::submit('Delete', array('class' => 'btn btn-primary')) }} 
-
-									{{ Form::close() }}
-
-								</td>
-
-								<td class="pull-right">
-
-									{{ Form::open(['url' => ["/admin/cases/$case->id/edit"]]) }}
-
-									{{ Form::submit('Edit', array('class' => 'btn btn-success')) }} 
+									{{ Form::submit('Delete', array('class' => 'btn btn-danger')) }} 
 
 									{{ Form::close() }}
 
