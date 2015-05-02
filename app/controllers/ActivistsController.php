@@ -46,39 +46,44 @@ class ActivistsController extends \BaseController {
 	{
 
 		$input = Input::all();
-
-		$attachment = Input::file('thumbnail');
-
+		
 		$uploadSuccess = False;
 
-		$thumbnail = array(
-
-			'name' 	      => $attachment->getClientOriginalName(),
-			'mime_type'	  => $attachment->getMimeType(),
-			'real_path'   => $attachment->getRealPath(),
-			'extension'   => $attachment->getClientOriginalExtension(),
-			'destination' => 'uploads/',
-			'randName'    => str_random(32).'.'.$attachment->getClientOriginalExtension()
-
-		);
-
-		if ( ! $this->attachmentValid($attachment) )
+		if($attachment = Input::file('thumbnail'))
 		{
-			return Redirect::back()->withInput()->withErrors( $this->attachmentErrors );
+
+
+			$thumbnail = array(
+
+				'name' 	      => $attachment->getClientOriginalName(),
+				'mime_type'	  => $attachment->getMimeType(),
+				'real_path'   => $attachment->getRealPath(),
+				'extension'   => $attachment->getClientOriginalExtension(),
+				'destination' => 'uploads/',
+				'randName'    => str_random(32).'.'.$attachment->getClientOriginalExtension()
+
+			);
+
+			if ( ! $this->attachmentValid($attachment) )
+			{
+				return Redirect::back()->withInput()->withErrors( $this->attachmentErrors );
+			}
+
+			$upload_success = Input::file('thumbnail')->move( $thumbnail['destination'], $thumbnail['randName'] );
+
+			if ( $upload_success ) $uploadSuccess = true;
+
+			if ( ! $uploadSuccess ) return Response::json('Error uploading attachment', 400);
+
 		}
+
 
 		if ( ! $this->activist->fill($input)->isValid() )
 		{
 			return Redirect::back()->withInput()->withErrors( $this->activist->errors );
 		}
 
-		$upload_success = Input::file('thumbnail')->move( $thumbnail['destination'], $thumbnail['randName'] );
-
-		if ( $upload_success ) $uploadSuccess = true;
-
-		if ( ! $uploadSuccess ) return Response::json('Error uploading attachment', 400);
-
-		$this->activist->thumbnail = $thumbnail['randName'];
+		if($uploadSuccess) $this->activist->thumbnail = $thumbnail['randName'];
 
 		$this->activist->save();
 
@@ -109,7 +114,10 @@ class ActivistsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$activist = $this->activist->find($id);
+		$admin = ( new User )->find($activist->admin_id);
+		
+		return View::make('activists.edit', [ 'activist' => $activist, 'admin' => $admin ]);
 	}
 
 
@@ -121,7 +129,50 @@ class ActivistsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		if ( ! $activist = $this->activist->find($id) ) return Redirect::back()->withInput();
+
+		$input = Input::all();
+
+		$uploadSuccess = False;
+
+		if($attachment = Input::file('thumbnail'))
+		{
+			$thumbnail = array(
+
+				'name' 	      => $attachment->getClientOriginalName(),
+				'mime_type'	  => $attachment->getMimeType(),
+				'real_path'   => $attachment->getRealPath(),
+				'extension'   => $attachment->getClientOriginalExtension(),
+				'destination' => 'uploads/',
+				'randName'    => str_random(32).'.'.$attachment->getClientOriginalExtension()
+
+			);
+
+			if ( ! $this->attachmentValid($attachment) )
+			{
+				return Redirect::back()->withInput()->withErrors( $this->attachmentErrors );
+			}
+
+			$upload_success = Input::file('thumbnail')->move( $thumbnail['destination'], $thumbnail['randName'] );
+
+			if ( $upload_success ) $uploadSuccess = true;
+
+			if ( ! $uploadSuccess ) return Response::json('Error uploading attachment', 400);
+
+		} else $input['thumbnail'] = $activist->thumbnail;
+
+		if ( ! $activist->fill($input)->isValid() )
+		{
+			return Redirect::back()->withInput()->withErrors( $activist->errors );
+		}
+
+		if($uploadSuccess) $activist->thumbnail = $thumbnail['randName'];
+
+		$activist->save();
+
+		$activists = new Activist;
+		
+		return View::make('activists.index', ['activists' => $activists::all()]);
 	}
 
 
@@ -133,7 +184,9 @@ class ActivistsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		if(!$activist = $this->activist->find($id)) return Redirect::back();
+		$activist->delete();
+		return Redirect::back();
 	}
 
 	private function attachmentValid($file)

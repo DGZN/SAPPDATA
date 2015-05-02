@@ -75,33 +75,30 @@
 <!-- END Jobs -->
 
 <!-- Quick Stats -->
-<section class="site-content site-section themed-background">
+<!-- <section class="site-content site-section themed-background">
     <div class="container">
-        <!-- Stats Row -->
-        <!-- CountTo (initialized in js/app.js), for more examples you can check out https://github.com/mhuggins/jquery-countTo -->
         <div class="row" id="counters">
             <div class="col-sm-4">
                 <div class="counter site-block">
-                    <span data-toggle="countTo" data-to="6800" data-after="+"></span>
+                    <span data-toggle="countTo" data-to="0" data-after="+"></span>
                     <small>Activists</small>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="counter site-block">
-                    <span data-toggle="countTo" data-to="5500" data-after="+"></span>
+                    <span data-toggle="countTo" data-to="0" data-after="+"></span>
                     <small>Open Cases</small>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="counter site-block">
-                    <span data-toggle="countTo" data-to="100" data-after="+"></span>
+                    <span data-toggle="countTo" data-to="0" data-after="+"></span>
                     <small>Online Records</small>
                 </div>
             </div>
         </div>
-        <!-- END Stats Row -->
     </div>
-</section>
+</section> -->
 <!-- END Quick Stats -->
 
 

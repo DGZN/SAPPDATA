@@ -25,11 +25,12 @@ class Activist extends Eloquent {
 
 	public static $rules = [
 
-		'first_name',
-		'last_name',
-		'gender',
-		'firstNameArabLit',
-		'lastNameArabLit'
+		'first_name' => 'required',
+		'last_name' => 'required',
+		'gender' => 'required',
+		'firstNameArabLit' => 'required',
+		'lastNameArabLit' => 'required',
+		'thumbnail'  => 'required'
 
 	];
 

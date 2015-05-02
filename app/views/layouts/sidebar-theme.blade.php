@@ -12,7 +12,13 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
 	<link href="{{ URL::asset('css/simple-sidebar.css')  }}" rel="stylesheet">
+
+    <style>
+        .errors{ color: red; font-weight: 200;}
+    </style>
 
 </head>
 <body>
@@ -31,13 +37,15 @@
                 <li>
                     <a href="/admin">Dashboard</a>
                 </li>
+                @if (Auth::user()->su > 0)
                 <li>
-                    <a href="/admin/users">Users</a>
+                    <a href="/admin/users">Admins</a>
                     <ul id="nav-users" class="@if ( ! isset($users) ) {{ 'hide' }} @endif">
                     	<li><a href="/admin/users">All Users</a></li>
                     	<li><a href="/admin/users/create">Create User</a></li>
                     </ul>
                 </li>
+                @endif
                 <li>
                     <a href="/admin/activists">Activists</a>
                     <ul id="nav-activists" class="@if ( ! isset($activists) ) {{ 'hide' }} @endif">
@@ -94,6 +102,7 @@
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
     @yield('footer-scripts')

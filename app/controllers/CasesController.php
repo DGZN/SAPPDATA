@@ -83,7 +83,10 @@ class CasesController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$case = $this->activeCase->find($id);
+		$admin = ( new User )->find($case->admin_id);
+		
+		return View::make('cases.edit', [ 'case' => $case, 'admin' => $admin ]);
 	}
 
 
@@ -95,7 +98,25 @@ class CasesController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$input = Input::all();
+
+		if ( ! $case = $this->activeCase->find($id) ) return Redirect::back()->withInput()->withErrors();
+
+		if ( ! $case->fill($input)->isValid() )
+		{
+			return Redirect::back()->withInput()->withErrors( $this->activeCase->errors );
+		}
+
+
+		$case->admin_id = Auth::id();
+
+		$case->save();
+
+		$case = $this->activeCase->find($id);
+
+		$admin = ( new User )->find($case->admin_id);
+		
+		return View::make('cases.show', [ 'case' => $case, 'admin' => $admin ]);
 	}
 
 

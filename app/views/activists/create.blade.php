@@ -173,3 +173,11 @@
 		</div>
 
 @stop
+
+@section('footer-scripts')
+<script>
+ $(function() {
+    $( "#date_of_birth" ).datepicker();
+  });
+</script>
+@stop

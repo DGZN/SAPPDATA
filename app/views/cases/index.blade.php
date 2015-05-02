@@ -33,6 +33,16 @@
 
 								</td>
 
+								<td class="pull-right">
+
+									{{ Form::open(['url' => ["/admin/cases/$case->id/edit"]]) }}
+
+									{{ Form::submit('Edit', array('class' => 'btn btn-success')) }} 
+
+									{{ Form::close() }}
+
+								</td>
+
 							</tr>
 
 						@endforeach

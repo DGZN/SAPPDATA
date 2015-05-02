@@ -5,7 +5,7 @@
 
 		<div class="col-md-6">
 
-			<h1>Users</h1>
+			<h1>Admins</h1>
 
 			<div class="table-responsive">
 			  

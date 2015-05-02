@@ -8,7 +8,7 @@
 
 			<div class="col-md-6">
 
-				<h2>Create New User</h2>
+				<h2>Create New Admin</h2>
 
 				{{ Form::open( [ 'route' => 'users.store' ] ) }}
 

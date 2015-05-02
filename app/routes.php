@@ -63,13 +63,17 @@ Route::get('/admin/logout', 'SessionsController@destroy');
 
 Route::resource('sessions', 'SessionsController');
 
+Route::delete('/api/v1/activists/{id}', 'ActivistsController@destroy');
+
 Route::group(array('before' => 'auth'), function()
 {
 
 	Route::get('admin', 'AdministratorController@index');
 	Route::resource('admin/users', 'UsersController');
 	Route::resource('admin/activists', 'ActivistsController');
+	Route::resource('admin/activists/{id}/edit', 'ActivistsController@edit');
 	Route::resource('admin/cases', 'CasesController');
+	Route::resource('admin/cases/{id}/edit', 'CasesController@edit');
 	Route::resource('admin/translations', 'TranslationsController');
 	Route::resource('admin/transliterates', 'TransliteratesController');
 	
@@ -78,6 +82,7 @@ Route::group(array('before' => 'auth'), function()
 	Route::resource('cases', 'CasesController');
 	Route::resource('translations', 'TranslationsController');
 	Route::resource('transliterates', 'TransliteratesController');
+
 
 	Route::get('/api/v1/cases', function(){
 

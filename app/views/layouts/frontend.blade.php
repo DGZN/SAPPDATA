@@ -135,22 +135,22 @@
             <div class="container">
                 <!-- Footer Links -->
                 <div class="row">
-                    <div class="col-sm-6 col-md-3">
+                    <!-- <div class="col-sm-6 col-md-3">
                         <h4 class="footer-heading">About Us</h4>
                         <ul class="footer-nav list-inline">
                             <li><a href="#">Company</a></li>
                             <li><a href="#">Contact</a></li>
                             <li><a href="#">Support</a></li>
                         </ul>
-                    </div>
-                    <div class="col-sm-6 col-md-3">
+                    </div> -->
+                    <!-- <div class="col-sm-6 col-md-3">
                         <h4 class="footer-heading">Legal</h4>
                         <ul class="footer-nav list-inline">
                             <li><a href="javascript:void(0)">Licensing</a></li>
                             <li><a href="javascript:void(0)">Privacy Policy</a></li>
                         </ul>
-                    </div>
-                    <div class="col-sm-6 col-md-3">
+                    </div> -->
+                    <!-- <div class="col-sm-6 col-md-3">
                         <h4 class="footer-heading">Follow Us</h4>
                         <ul class="footer-nav footer-nav-social list-inline">
                             <li><a href="javascript:void(0)"><i class="fa fa-facebook"></i></a></li>
@@ -159,13 +159,8 @@
                             <li><a href="javascript:void(0)"><i class="fa fa-dribbble"></i></a></li>
                             <li><a href="javascript:void(0)"><i class="fa fa-rss"></i></a></li>
                         </ul>
-                    </div>
-                    <div class="col-sm-6 col-md-3">
-                        <h4 class="footer-heading"><span id="year-copy">2015</span> &copy; <a href="#">SAPP Data</a></h4>
-                        <ul class="footer-nav list-inline">
-                            <li>Built <i class="fa fa-heart text-danger"></i> by <a href="#">DGZN</a></li>
-                        </ul>
-                    </div>
+                    </div> -->
+                    <!-- z -->
                 </div>
                 <!-- END Footer Links -->
             </div>
