@@ -37,7 +37,7 @@
                 <li>
                     <a href="/admin">Dashboard</a>
                 </li>
-                @if (Auth::user()->su > 0)
+                @if (Auth::user()->su)
                 <li>
                     <a href="/admin/users">Admins</a>
                     <ul id="nav-users" class="@if ( ! isset($users) ) {{ 'hide' }} @endif">
