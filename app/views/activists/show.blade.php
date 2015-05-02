@@ -155,7 +155,7 @@
 
 										{{ Form::open(['url' => ["/admin/activists/$activist->id/edit"]]) }}
 
-										{{ Form::submit('Edit', array('class' => 'btn btn-success')) }} 
+										{{ Form::submit('Edit Activist', array('class' => 'btn btn-primary')) }} 
 
 										{{ Form::close() }}
 
